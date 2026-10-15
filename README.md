@@ -1,136 +1,61 @@
-# Bootmark Simple
+# Bootmark 1.5.0
 
-**Vlastné boot logo pre podporované UEFI firmvéry.**
+Vlastné boot logo pre podporované UEFI firmvéry.
 
-Bootmark Simple je offline aplikácia pre Windows, ktorá vyhľadá obrázky vo firmvéri, zobrazí ich náhľad a umožní nahradiť podporovaný obrázok vlastným logom.
+Bootmark je aplikácia pre Windows, ktorá vyhľadá obrázky v súbore BIOS/UEFI, zobrazí ich náhľad a umožní nahradiť podporovaný obrázok vlastným logom. Súbory spracúva lokálne.
 
-**Verzia:** 1.4 · **Systém:** Windows 11 x64 · **Licencia:** proprietárna
-
-> [!WARNING]
-> Úprava a následné flashovanie firmvéru môžu spôsobiť nefunkčnosť zariadenia. Uchovajte si pôvodný BIOS a overte presný model aj revíziu dosky. Bootmark nevykonáva flashovanie a nezaručuje kompatibilitu výsledného súboru so zariadením.
-
-## Obsah
-
-- [Funkcie](#funkcie)
-- [Inštalácia](#inštalácia)
-- [Použitie](#použitie)
-- [Tvorba vlastného loga](#tvorba-vlastného-loga)
-- [Podpora firmvérov](#podpora-firmvérov)
-- [Overené súbory](#overené-súbory)
-- [Jazyky a vzhľad](#jazyky-a-vzhľad)
-- [Licencia a komponenty tretích strán](#licencia-a-komponenty-tretích-strán)
-
-## Funkcie
-
-- Vyhľadávanie obrázkov v UEFI vrátane komprimovaných vnorených objemov.
-- Náhľad pôvodného obrázka a výber z viacerých nálezov.
-- Import vlastného loga vo formáte PNG, JPG alebo BMP.
-- Automatické prevzatie odporúčaných rozmerov a výstupného formátu.
-- Zachovanie pomeru strán, čierne pozadie a voliteľné orezanie prázdnych okrajov.
-- Vstavaný editor textových log s priebežným náhľadom a exportom PNG.
-- Kontroly štruktúry firmvéru pred uložením aj po úprave.
-- Odkazy na oficiálne stránky výrobcov na stiahnutie BIOSu.
-- 17 jazykov, štyri farebné témy a uloženie nastavení.
-
-## Inštalácia
-
-### Požiadavky
+## Požiadavky
 
 - Windows 11, 64-bitová verzia.
-- .NET Framework 4.8 a WPF.
+- .NET Framework 4.8 s WPF.
+- Súbor firmvéru pre presný model a revíziu zariadenia.
 
-### Inštalátor
+## Inštalácia a spustenie
 
-Spustite `setup.exe` alebo `BootmarkSetup-1.4.exe` a postupujte podľa pokynov. Inštalátor podporuje aktualizáciu predchádzajúcej inštalácie a zachováva používateľské súbory.
+Spustite `Bootmark-Setup-1.5.0.exe` alebo `setup.exe` a postupujte podľa pokynov. Inštalátor umožňuje vytvoriť odkaz na pracovnej ploche.
 
-## Použitie
+Prenosnú verziu rozbaľte z `Bootmark-portable.zip` a spustite `Bootmark.App.exe`. Ponechajte pri nej sprievodné licencie a oznámenia. Odinštalovanie nainštalovanej verzie je dostupné v nastaveniach aplikácií Windows; používateľské údaje zostávajú zachované.
 
-1. Spustite Bootmark.
-2. Vyberte súbor firmvéru alebo ho presuňte do okna aplikácie.
-3. Zo zoznamu nájdených obrázkov vyberte ten, ktorý chcete upraviť. Pred výberom nového loga sa zobrazuje pôvodný obrázok.
-4. Načítajte vlastný PNG, JPG alebo BMP, prípadne vytvorte textové logo. Skontrolujte náhľad a nastavenie orezania.
-5. Uložte upravený firmvér do nového súboru.
+## Ako zmeniť logo
 
-Pôvodný súbor sa neprepíše a výstup si zachová jeho príponu. Pri exporte sa nevytvára sprievodný report.
+1. Uchovajte si pôvodný súbor BIOSu.
+2. Otvorte firmvér v Bootmarku alebo ho presuňte do okna aplikácie.
+3. Vyberte nájdený obrázok a skontrolujte jeho náhľad.
+4. Načítajte vlastný PNG, JPG alebo BMP, prípadne vytvorte textové logo v Creatore.
+5. Skontrolujte rozmery, kompozíciu a nastavenie orezania.
+6. Uložte upravený firmvér do nového súboru.
 
-### Získanie BIOSu
+Tlačidlo **Stiahnuť BIOS** otvára oficiálne stránky výrobcov. Model, revíziu dosky a vhodnú verziu firmvéru overte na stránke výrobcu. Internet je potrebný na otvorenie týchto stránok.
 
-Tlačidlo **Stiahnuť BIOS** otvorí výber výrobcu s rozpoznaným modelom počítača alebo dosky. Dostupné sú oficiálne centrá podpory GIGABYTE, ASUS, MSI, ASRock, Dell, HP, Lenovo a Acer.
+## Creator
 
-Presný model, revíziu a verziu firmvéru vyberte na stránke výrobcu. Stiahnutý archív rozbaľte a výsledný súbor otvorte v Bootmarku.
+Creator vytvára textové logá s priebežným náhľadom. Môžete meniť text, písmo, veľkosť, farbu a tučné písmo. Pozadie je čierne. Logo môžete použiť v aplikácii alebo uložiť ako PNG.
 
-## Tvorba vlastného loga
+Odporúčané rozmery vychádzajú z vybraného obrázka vo firmvéri. Pre logo určené do BIOSu najprv načítajte firmvér a vyberte obrázok.
 
-Editor **Creator** otvoríte tlačidlom napravo od výberu obrázka. Umožňuje nastaviť text, písmo, veľkosť, tučné písmo a farbu textu. Pozadie zostáva čierne.
+Súčasťou aktuálnej zostavy sú **Goldman**, **Monocraft** a **Ethnocentric Regular**. Ethnocentric Italic nie je súčasťou výberu ani balíka. Dostupné sú aj podporované systémové písma. Voliteľný Arcend sa načíta zo systému alebo zo súboru `%LOCALAPPDATA%\Bootmark\UserFonts\Arcend.ttf`; nie je pribalený.
 
-Rozmery sa preberajú z vybraného obrázka vo firmvéri. Bez načítaného BIOSu editor používa rozmer **1024 × 300 px**; pre správne odporúčané rozmery najprv načítajte firmvér.
+Goldman a Monocraft majú priložené licencie SIL OFL. Ethnocentric sa riadi samostatnou licenciou svojho autora; licencia Bootmarku neudeľuje práva k tomuto písmu. K dodanému OTF nebola v projekte priložená jeho pôvodná licencia. Pred ďalšou distribúciou balíka s týmto písmom treba doložiť oprávnenie na jeho vloženie do aplikácie.
 
-Logo môžete použiť priamo alebo uložiť ako PNG. Pri použití loga s rovnakými rozmermi sa zachová kompozícia a automatické orezanie sa vypne. Zrušenie editora nemení logo v hlavnom okne.
+## Podpora a obmedzenia
 
-### Písma
+Podpora závisí od štruktúry firmvéru. Samotná prípona súboru ani značka dosky nezaručujú možnosť úpravy.
 
-Pribalené písma **Goldman** a **Monocraft** fungujú offline bez systémovej inštalácie. Dostupné sú aj podporované systémové písma, napríklad Impact, Georgia, Consolas, Comic Sans MS a Segoe Script.
+- Aplikácia vyhľadáva podporované JPEG, PNG a BMP obrázky v UEFI.
+- Export vyžaduje podporovaný kontajner a úspešné kontroly štruktúry.
+- Pri rozpoznanej podpísanej kapsule alebo chránenej oblasti môže byť export zablokovaný.
+- Nie každý nájdený grafický zdroj je boot logo.
+- Bootmark nevykonáva flashovanie a neupravuje digitálne podpisy výrobcu.
 
-Písmo **Arcend** sa nepribaľuje. Ak máte oprávnenie ho používať, aplikácia ho načíta zo systému alebo zo súboru `%LOCALAPPDATA%\Bootmark\UserFonts\Arcend.ttf`.
+Pri exporte aplikácia kontroluje okrem iného objemy, kontrolné súčty, pozície ostatných súborov a spätne extrahovaný obrázok. Úspešné kontroly nezaručujú prijatie firmvéru zariadením ani úspešné spustenie.
 
-## Podpora firmvérov
+**Úprava a flashovanie firmvéru môžu spôsobiť stratu dát alebo nefunkčnosť zariadenia. Uchovajte pôvodný BIOS a riaďte sa postupom výrobcu zariadenia.**
 
-O podpore rozhoduje obsah a štruktúra súboru, nie jeho prípona ani zoznam konkrétnych dosiek.
+## Jazyk a vzhľad
 
-| Oblasť | Podpora |
-| --- | --- |
-| Vyhľadávanie | Rozbalený strom UEFI, vnorené komprimované objemy a doplnkové fyzické PI FFS2/FFS3 objemy |
-| Obrázky | JPEG, PNG a nekomprimovaný BMP so 40-bajtovou DIB hlavičkou, 1/4/8/24/32 bitov |
-| Export | Samostatné raw/freeform obrázky s jednoznačným FFS kontajnerom |
-| Rozpoznané kapsuly a chránené oblasti | Vyhľadávanie a náhľad; export je zablokovaný |
-| Nerozpoznané alebo šifrované kontajnery | Odmietnuté |
+V nastaveniach môžete zmeniť jazyk a farebnú tému. Aplikácia podporuje 17 jazykov a témy Obsidián, Perla, Les a Pomaranč. Jazyk a téma sa ukladajú.
 
-Pri neznámom GUID aplikácia označí nález ako grafický zdroj. Nemusí ísť o boot logo. Obrázky v neznámych proprietárnych formátoch alebo uprostred spustiteľného kódu nemusia byť rozpoznané.
+## Licencia
 
-### Kontroly exportu
+Bootmark je proprietárny softvér. Podmienky používania sú v `LICENSE.txt`. Zdrojový kód sa neposkytuje ako súčasť distribučného balíka.
 
-Pri exporte sa overujú:
-
-- rovnaká veľkosť objemu a platné kontrolné súčty FV/FFS;
-- nezmenené pozície a obsah ostatných FFS súborov;
-- zhoda spätne extrahovaného obrázka s vloženým logom;
-- štruktúra rozbaleného stromu a nezmenené bajty mimo upraveného objemu.
-
-Ak je upravený kontajner menší, voľné miesto sa vyplní štandardným FFS PAD súborom. Ak sa väčší kontajner nezmestí bez posunutia iných súborov, export sa odmietne.
-
-> [!IMPORTANT]
-> Detekcia ochrany nie je úplná a nenahrádza autentifikáciu výrobcu. Aplikácia neupravuje podpisy. Úspešné softvérové overenie samo osebe nepotvrdzuje, že zariadenie upravený firmvér prijme alebo s ním nabootuje.
-
-## Overené súbory
-
-| Doska alebo súbor | Výsledok | Overenie na zariadení |
-| --- | --- | --- |
-| Gigabyte A520M K V2 rev. 1.1, FFa | Logo TITAN, JPEG 809 × 116 | Používateľ potvrdil prijatie Q-Flashom a úspešné bootovanie |
-| `H81S2PV3.F2` | 4 obrázky; hlavný BMP 809 × 116; export SCOUT prešiel extrakciou a opätovným otvorením | Netestované |
-| `ROG-STRIX-Z890-F-GAMING-WIFI-ASUS-3401.CAP` | 113 obrázkov; hlavné logo 672 × 378; podpísaná kapsula, export zablokovaný | Netestované |
-
-Lokálny sken trval približne 2,4 s pri H81 a 7,2 s pri Z890. Časy závisia od hardvéru. Automatické testy zahŕňajú aj syntetické PI objemy, rôzne GUID a obrázky JPEG/PNG/BMP. Ostatné dosky neboli hardvérovo overené.
-
-## Jazyky a vzhľad
-
-Aplikácia a inštalátor podporujú 17 jazykov:
-
-English, Slovenčina, Čeština, Deutsch, Français, Español, Italiano, Português, Polski, Magyar, Nederlands, Türkçe, Українська, Русский, 简体中文, 日本語, 한국어.
-
-Predvolený jazyk sa vyberá podľa Windows; pri nepodporovanom jazyku sa použije angličtina. Jazyk aplikácie môžete zmeniť bez reštartu. Niektoré technické diagnostické správy môžu zostať v pôvodnom jazyku.
-
-Nastavenia otvoríte ikonou ozubeného kolieska. K dispozícii sú témy **Obsidián**, **Perla**, **Les** a **Pomaranč**. Téma a jazyk sa ukladajú; zmena témy nemení obrazové dáta loga.
-
-## Licencia a komponenty tretích strán
-
-**Bootmark je proprietárny softvér a nie je open source.** Produkt sa distribuuje iba v skompilovanej forme ako aplikácia alebo EXE inštalátor so sprievodnými licenciami. Zdrojový kód sa neposkytuje. Podmienky používania upravuje [LICENSE.txt](LICENSE.txt).
-
-Bootmark používa nasledujúce komponenty tretích strán, ktoré si zachovávajú vlastné licencie:
-
-| Komponent | Použitie | Licencia |
-| --- | --- | --- |
-| LongSoft UEFIExtract A75 a UEFIReplace 0.28 z projektu UEFITool | Spracovanie UEFI firmvéru | [BSD, 2 podmienky](docs/UEFITool-LICENSE.md) |
-| Goldman | Pribalené písmo | [SIL Open Font License](docs/fonts/Goldman-OFL.txt) |
-| Monocraft | Pribalené písmo | [SIL Open Font License](docs/fonts/Monocraft-OFL.txt) |
-
-Licenčné texty tretích strán sú súčasťou distribučného balíka. Proprietárna licencia Bootmarku nemení práva udelené licenciami týchto komponentov.
