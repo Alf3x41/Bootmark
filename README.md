@@ -43,12 +43,6 @@ Bootmark Simple je offline aplikácia pre Windows, ktorá vyhľadá obrázky vo 
 
 Spustite `setup.exe` alebo `BootmarkSetup-1.4.exe` a postupujte podľa pokynov. Inštalátor podporuje aktualizáciu predchádzajúcej inštalácie a zachováva používateľské súbory.
 
-### Prenosná verzia
-
-Rozbaľte `Bootmark-Simple-portable.zip` a spustite `Bootmark.App.exe`. V balíku ponechajte priložené licenčné súbory.
-
-Aplikácia pracuje offline. Internet je potrebný pri otvorení stránok výrobcov na stiahnutie BIOSu. Pomocné nástroje sa rozbalia do `%LOCALAPPDATA%\Bootmark\SimpleTools-1.0`.
-
 ## Použitie
 
 1. Spustite Bootmark.
